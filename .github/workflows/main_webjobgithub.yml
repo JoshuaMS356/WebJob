@@ -54,4 +54,4 @@ jobs:
           app-name: 'WebJobGitHub'
           slot-name: 'Production'
           publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_26F2CF7AC871425ABFBE286C70B33439 }}
-          package: .
+          package: .\app_data\Jobs\Triggered\ConsoleApp2
