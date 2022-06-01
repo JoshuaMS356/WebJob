@@ -3,6 +3,12 @@
 
 name: Build and deploy ASP.Net Core app to Azure Web App - WebJobGitHub
 
+env:
+  BINARIES: './output/app_data/jobs/triggered/ConsoleApp2' # the last folder name will become the webjob name in the portal
+  ZIP_FILE: 'webjob.zip'
+  ZIP_PATH: './output'
+  ZIP_FILEPATH: './output/webjob.zip'
+
 on:
   push:
     branches:
@@ -19,20 +25,23 @@ jobs:
       - name: Set up .NET Core
         uses: actions/setup-dotnet@v1
         with:
-          dotnet-version: '6.0.x'
+          dotnet-version: 3.1.101
           include-prerelease: true
+          
+      - name: Install dependencies
+        run: dotnet restore ./bin/ConsoleApp2.sln    
 
       - name: Build with dotnet
-        run: dotnet build --configuration Release
+        run: dotnet build ./bin/ConsoleApp2.sln --configuration Release --no-restore --output ${{env.BINARIES}}
 
       - name: dotnet publish
-        run: dotnet publish -c Release -o ${{env.DOTNET_ROOT}}/myapp
+        run: dotnet publish -c Release --output ${{env.BINARIES}}
 
       - name: Upload artifact for deployment job
         uses: actions/upload-artifact@v2
         with:
           name: .net-app
-          path: ${{env.DOTNET_ROOT}}/myapp
+          path: ${{env.BINARIES}}
 
   deploy:
     runs-on: windows-latest
@@ -54,4 +63,4 @@ jobs:
           app-name: 'WebJobGitHub'
           slot-name: 'Production'
           publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_26F2CF7AC871425ABFBE286C70B33439 }}
-          package: .
+          package:  ${{env.ZIP_FILEPATH}}
