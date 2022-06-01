@@ -1,6 +1,0 @@
-C:\Users\v-sjoshu\source\repos\ConsoleApp2\obj\Release\netcoreapp3.1\PubTmp\Out\app_data\Jobs\Triggered\ConsoleApp2\Settings.job
-C:\Users\v-sjoshu\source\repos\ConsoleApp2\obj\Release\netcoreapp3.1\PubTmp\Out\app_data\Jobs\Triggered\ConsoleApp2\ConsoleApp2.exe
-C:\Users\v-sjoshu\source\repos\ConsoleApp2\obj\Release\netcoreapp3.1\PubTmp\Out\app_data\Jobs\Triggered\ConsoleApp2\ConsoleApp2.dll
-C:\Users\v-sjoshu\source\repos\ConsoleApp2\obj\Release\netcoreapp3.1\PubTmp\Out\app_data\Jobs\Triggered\ConsoleApp2\ConsoleApp2.deps.json
-C:\Users\v-sjoshu\source\repos\ConsoleApp2\obj\Release\netcoreapp3.1\PubTmp\Out\app_data\Jobs\Triggered\ConsoleApp2\ConsoleApp2.runtimeconfig.json
-C:\Users\v-sjoshu\source\repos\ConsoleApp2\obj\Release\netcoreapp3.1\PubTmp\Out\app_data\Jobs\Triggered\ConsoleApp2\ConsoleApp2.pdb
