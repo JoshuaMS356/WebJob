@@ -19,7 +19,7 @@ jobs:
       - name: Set up .NET Core
         uses: actions/setup-dotnet@v1
         with:
-          dotnet-version: '6.0.x'
+          dotnet-version: '3.1.301'
           include-prerelease: true
 
       - name: Build with dotnet
@@ -53,5 +53,5 @@ jobs:
         with:
           app-name: 'WebJobGitHub'
           slot-name: 'Production'
-          publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_AB9B69FE42C94EAA907C751BFF05F9E6 }}
-          package: .\app_data\Jobs\Triggered\ConsoleApp2
+          publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_4F34C10C807F44F3B332256AF15B5D9A }}
+          package: .
