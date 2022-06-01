@@ -23,7 +23,7 @@ jobs:
           include-prerelease: true
 
       - name: Build with dotnet
-        run: dotnet build --configuration Release
+        run: dotnet build --configuration Release --output './app_data/jobs/continuous/mywebjob'
 
       - name: dotnet publish
         run: dotnet publish -c Release -o ${{env.DOTNET_ROOT}}/myapp
@@ -54,4 +54,4 @@ jobs:
           app-name: 'WebJobGitHub'
           slot-name: 'Production'
           publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_4F34C10C807F44F3B332256AF15B5D9A }}
-          package: .\app_data\Jobs\Triggered\ConsoleApp2
+          package: .
