@@ -23,9 +23,10 @@ jobs:
           include-prerelease: true
 
       - name: Build with dotnet
-        run: dotnet build --configuration Release --output './app_data/jobs/continuous/mywebjob'
+        run: dotnet build --configuration Release
 
       - name: dotnet publish
+        working-directory: './app_data/jobs/continuous/mywebjob'
         run: dotnet publish -c Release -o ${{env.DOTNET_ROOT}}/myapp
 
       - name: Upload artifact for deployment job
