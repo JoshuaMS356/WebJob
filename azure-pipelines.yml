@@ -20,13 +20,19 @@ steps:
 - task: NuGetCommand@2
   inputs:
     restoreSolution: '$(solution)'
-
 - task: VSBuild@1
   inputs:
     solution: '$(solution)'
     msbuildArgs: '/p:DeployOnBuild=true /p:WebPublishMethod=Package /p:PackageAsSingleFile=true /p:SkipInvalidConfigurations=true /p:PackageLocation="$(build.artifactStagingDirectory)"'
     platform: '$(buildPlatform)'
     configuration: '$(buildConfiguration)'
+- task: AzureRmWebAppDeployment@4
+  inputs:
+    ConnectionType: 'AzureRM'
+    azureSubscription: 'MAIC - TEK Experts CR - v-jorggr Group#2(bddf3c59-769c-49a7-a515-6310ce264e6a)'
+    appType: 'webApp'
+    WebAppName: 'WebJobGitHub'
+    packageForLinux: '$(System.DefaultWorkingDirectory)/**/*.zip'
 
 - task: VSTest@2
   inputs:
